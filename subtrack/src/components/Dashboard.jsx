@@ -3,6 +3,7 @@ import { Archive, ChevronDown, CircleCheck, Flame, Plus, Wallet } from 'lucide-r
 import AlertsBanner from './AlertsBanner'
 import Insights from './Insights'
 import SubscriptionCard from './SubscriptionCard'
+import { Logo } from './ui'
 import { formatMoney, isHighSpend, monthlyCost, renewalStatus } from '../lib/subscriptions'
 
 function greeting() {
@@ -93,7 +94,7 @@ export default function Dashboard({ subs, onOpen, onAdd }) {
           <h1 className="mt-0.5 text-2xl font-bold tracking-tight text-slate-900">{greeting()}</h1>
         </div>
         <div className="flex items-center gap-2 rounded-full bg-white py-1.5 pl-1.5 pr-3 shadow-sm ring-1 ring-slate-200/70">
-          <img src="/favicon.svg" alt="" className="size-7 rounded-lg" />
+          <Logo className="size-7" />
           <span className="text-sm font-bold tracking-tight">SubTrack</span>
         </div>
       </header>

@@ -48,3 +48,18 @@ export function ScreenHeader({ title, onBack, right }) {
     </header>
   )
 }
+
+export function Logo({ className = '' }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="subtrack-logo" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#10b981" />
+          <stop offset="1" stopColor="#047857" />
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="16" fill="url(#subtrack-logo)" />
+      <path d="M20 34l8 8 16-18" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
