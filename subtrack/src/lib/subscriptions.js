@@ -38,11 +38,12 @@ export const CYCLES = {
 }
 
 // A single subscription at or above this monthly cost is flagged as high spend.
-export const HIGH_SPEND_MONTHLY = 40
+export const HIGH_SPEND_MONTHLY = 2000
 // Renewals within this many days surface in the alerts banner.
 export const ALERT_WINDOW_DAYS = 3
 
-const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+// Indian Rupees with lakh/crore grouping (₹1,23,456). Subscription prices are whole rupees, so no paise.
+const currency = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 })
 
 export function formatMoney(value) {
   return currency.format(value)
@@ -116,11 +117,11 @@ export function newId() {
 // Renewal dates are relative to today so the demo always has upcoming alerts.
 export function seedSubscriptions() {
   return [
-    { name: 'Netflix', cost: 15.49, cycle: 'monthly', offset: 2, category: 'entertainment' },
-    { name: 'Spotify Premium', cost: 11.99, cycle: 'monthly', offset: 1, category: 'entertainment' },
-    { name: 'Adobe Creative Cloud', cost: 59.99, cycle: 'monthly', offset: 11, category: 'productivity' },
-    { name: 'Notion Plus', cost: 10, cycle: 'monthly', offset: 18, category: 'productivity' },
-    { name: 'Strava', cost: 79.99, cycle: 'yearly', offset: 47, category: 'fitness' },
+    { name: 'Netflix', cost: 499, cycle: 'monthly', offset: 2, category: 'entertainment' },
+    { name: 'Spotify Premium', cost: 119, cycle: 'monthly', offset: 1, category: 'entertainment' },
+    { name: 'Adobe Creative Cloud', cost: 4230, cycle: 'monthly', offset: 11, category: 'productivity' },
+    { name: 'Notion Plus', cost: 850, cycle: 'monthly', offset: 18, category: 'productivity' },
+    { name: 'Strava', cost: 2999, cycle: 'yearly', offset: 47, category: 'fitness' },
   ].map(({ offset, ...sub }, i) => ({
     ...sub,
     id: `seed-${i + 1}`,

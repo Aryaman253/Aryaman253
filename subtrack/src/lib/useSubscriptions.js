@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { newId, seedSubscriptions } from './subscriptions'
 
-const STORAGE_KEY = 'subtrack:v1'
+const STORAGE_KEY = 'subtrack:v2'
 
 function load() {
   try {

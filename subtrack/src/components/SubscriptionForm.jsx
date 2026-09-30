@@ -36,7 +36,7 @@ export default function SubscriptionForm({ initial, onSave, onCancel }) {
   const cost = parseFloat(form.cost)
   const errors = {
     name: !form.name.trim() ? 'Give your subscription a name' : null,
-    cost: !(cost > 0) ? 'Enter a cost greater than $0' : null,
+    cost: !(cost > 0) ? 'Enter a cost greater than ₹0' : null,
     nextRenewal: !form.nextRenewal ? 'Pick the next renewal date' : null,
   }
   const valid = !Object.values(errors).some(Boolean)
@@ -81,11 +81,11 @@ export default function SubscriptionForm({ initial, onSave, onCancel }) {
         >
           <div className="relative">
             <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base font-semibold text-slate-400">
-              $
+              ₹
             </span>
             <input
               className={`${inputClass} tabular pl-8 font-semibold`}
-              placeholder="0.00"
+              placeholder="0"
               inputMode="decimal"
               type="number"
               step="0.01"

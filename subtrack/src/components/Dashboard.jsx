@@ -15,7 +15,7 @@ function greeting() {
 
 function SpendHero({ active }) {
   const total = active.reduce((sum, s) => sum + monthlyCost(s), 0)
-  const [dollars, cents] = formatMoney(total).split('.')
+  const amount = formatMoney(total).replace('₹', '')
   const highCount = active.filter(isHighSpend).length
   const dueSoon = active.filter((s) => renewalStatus(s) !== 'ok').length
 
@@ -41,8 +41,8 @@ function SpendHero({ active }) {
         </div>
 
         <p className="tabular mt-2 text-5xl font-bold tracking-tight">
-          {dollars}
-          <span className="text-2xl font-semibold text-slate-400">.{cents}</span>
+          <span className="mr-1 align-top text-3xl font-semibold text-slate-400">₹</span>
+          {amount}
         </p>
         <p className="tabular mt-1 text-sm text-slate-400">≈ {formatMoney(total * 12)} per year</p>
 
